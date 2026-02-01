@@ -3,9 +3,21 @@ import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { defineConfig } from "vite";
 
+// Conditionally import Manus plugins for dev environment
+let manusPlugins: any[] = [];
+if (process.env.NODE_ENV !== 'production') {
+  try {
+    const { default: jsxLoc } = await import('@builder.io/vite-plugin-jsx-loc');
+    const { default: manusRuntime } = await import('vite-plugin-manus-runtime');
+    manusPlugins = [jsxLoc(), manusRuntime()];
+  } catch (e) {
+    // Plugins not available, skip
+  }
+}
+
 export default defineConfig({
-  base: '/henrys-fine-jewelry/',
-  plugins: [react(), tailwindcss()],
+  base: '/henrys-fine-jewelry',
+  plugins: [react(), tailwindcss(), ...manusPlugins],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),

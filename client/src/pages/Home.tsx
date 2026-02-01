@@ -10,28 +10,28 @@ export default function Home() {
 
   const heroSlides = [
     {
-      image: `${basePath}images/hero-couple-proposal.jpg`,
+      image: `${basePath}/images/hero-couple-proposal.jpg`,
       title: 'Where Love Stories Begin',
       subtitle: 'Celebrating life\'s most precious moments with exquisite jewelry since 1989',
       primaryCta: { text: 'Explore Engagement Rings', link: '/engagement-rings' },
       secondaryCta: { text: 'Book Consultation', link: 'tel:9082733777', isPhone: true },
     },
     {
-      image: `${basePath}images/custom-design-process.jpg`,
+      image: `${basePath}/images/custom-design-process.jpg`,
       title: 'Custom Design Excellence',
       subtitle: 'Bring your vision to life with our expert craftsmen and designers',
       primaryCta: { text: 'Start Custom Design', link: '/custom-design' },
       secondaryCta: { text: 'View Our Process', link: '/custom-design' },
     },
     {
-      image: `${basePath}images/hero-hands-rings.jpg`,
+      image: `${basePath}/images/hero-hands-rings.jpg`,
       title: 'Timeless Engagement Rings',
       subtitle: 'Discover the perfect symbol of your love from our curated collection',
       primaryCta: { text: 'Browse Engagement Rings', link: '/engagement-rings' },
       secondaryCta: { text: 'Book Consultation', link: 'tel:9082733777', isPhone: true },
     },
     {
-      image: `${basePath}images/store-interior-welcoming.jpg`,
+      image: `${basePath}/images/store-interior-welcoming.jpg`,
       title: 'Family-Owned Since 1989',
       subtitle: 'Experience personalized service at our Summit and Basking Ridge locations',
       primaryCta: { text: 'Visit Our Showrooms', link: '/locations' },
@@ -118,9 +118,10 @@ export default function Home() {
             }`}
           >
             <div
-              className="absolute inset-0 bg-cover bg-center"
+              className="absolute inset-0 bg-cover"
               style={{
                 backgroundImage: `url(${slide.image})`,
+                backgroundPosition: index === 3 ? 'center 60%' : 'center center',
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />
@@ -232,7 +233,7 @@ export default function Home() {
             <Link href="/engagement-rings" className="group block">
               <div className="relative overflow-hidden rounded-xl aspect-[4/5] mb-4">
                 <img
-                  src={`${basePath}images/hero-hands-rings.jpg`}
+                  src={`${basePath}/images/hero-hands-rings.jpg`}
                   alt="Engagement Rings"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -250,7 +251,7 @@ export default function Home() {
             <Link href="/custom-design" className="group block">
               <div className="relative overflow-hidden rounded-xl aspect-[4/5] mb-4">
                 <img
-                  src={`${basePath}images/custom-design-process.jpg`}
+                  src={`${basePath}/images/custom-design-process.jpg`}
                   alt="Custom Design"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -268,7 +269,7 @@ export default function Home() {
             <a href="#" className="group block">
               <div className="relative overflow-hidden rounded-xl aspect-[4/5] mb-4 bg-[#1a1a1a]">
                 <img
-                  src={`${basePath}images/fine-jewelry-collection.jpg`}
+                  src={`${basePath}/images/fine-jewelry-collection.jpg`}
                   alt="Fine Jewelry"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -423,7 +424,7 @@ export default function Home() {
             </div>
             <div>
               <img
-                src={`${basePath}images/store-interior-welcoming.jpg`}
+                src={`${basePath}/images/store-interior-welcoming.jpg`}
                 alt="Henry's Fine Jewelry Store Interior"
                 className="rounded-xl shadow-2xl"
               />

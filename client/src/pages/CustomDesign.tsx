@@ -21,7 +21,7 @@ export default function CustomDesign() {
   return (
     <div>
       <section className="relative h-[60vh] min-h-[400px] flex items-center">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${basePath}images/custom-design-process.jpg)` }}>
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${basePath}/images/custom-design-process.jpg)` }}>
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 to-black/45" />
         </div>
         <div className="container relative z-10 text-white">
