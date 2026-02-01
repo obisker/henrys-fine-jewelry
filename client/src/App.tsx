@@ -1,5 +1,3 @@
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import Header from "./components/Header";
@@ -31,12 +29,7 @@ function Router() {
 }
 
 function App() {
-  return (
-    <TooltipProvider>
-      <Toaster />
-      <Router />
-    </TooltipProvider>
-  );
+  return <Router />;
 }
 
 export default App;
