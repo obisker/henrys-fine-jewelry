@@ -2,8 +2,6 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
-
-import { ThemeProvider } from "./contexts/ThemeContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -34,12 +32,10 @@ function Router() {
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="light">
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </ThemeProvider>
+    <TooltipProvider>
+      <Toaster />
+      <Router />
+    </TooltipProvider>
   );
 }
 
