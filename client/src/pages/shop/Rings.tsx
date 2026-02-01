@@ -9,7 +9,7 @@ export default function Rings() {
       <section className="relative h-[50vh] min-h-[350px] flex items-center bg-[#1a1a1a]">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${basePath}images/rings-hero.jpg)` }}
+          style={{ backgroundImage: `url(${basePath}/images/rings-hero.jpg)` }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
         </div>
