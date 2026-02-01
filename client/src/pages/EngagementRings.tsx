@@ -2,6 +2,7 @@ import { Link } from 'wouter';
 import { Diamond, Heart, Shield, Sparkles, CheckCircle, Phone } from 'lucide-react';
 
 export default function EngagementRings() {
+  const basePath = import.meta.env.BASE_URL;
   const ringStyles = [
     { name: 'Solitaire', description: 'Timeless elegance with a single center diamond', popular: true },
     { name: 'Halo', description: 'Center stone surrounded by smaller diamonds for extra sparkle', popular: true },
@@ -21,7 +22,7 @@ export default function EngagementRings() {
   return (
     <div>
       <section className="relative h-[60vh] min-h-[400px] flex items-center">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/images/hero-hands-rings.jpg)' }}>
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${basePath}images/hero-hands-rings.jpg)` }}>
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
         </div>
         <div className="container relative z-10 text-white">

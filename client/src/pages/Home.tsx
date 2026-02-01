@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
   const basePath = import.meta.env.BASE_URL;
 
   const heroSlides = [
@@ -52,6 +54,29 @@ export default function Home() {
     setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+    if (isLeftSwipe) {
+      nextSlide();
+    }
+    if (isRightSwipe) {
+      prevSlide();
+    }
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
+
   const trustSignals = [
     { icon: Users, text: '37 Years of Excellence' },
     { icon: Star, text: '300+ 5-Star Reviews' },
@@ -79,7 +104,12 @@ export default function Home() {
 
   return (
     <div>
-      <section className="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden">
+      <section 
+        className="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {heroSlides.map((slide, index) => (
           <div
             key={index}
@@ -106,18 +136,18 @@ export default function Home() {
             <p className="text-xl md:text-2xl mb-10 text-balance leading-relaxed font-light">
               {heroSlides[currentSlide].subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3">
               {heroSlides[currentSlide].primaryCta.isPhone ? (
                 <a
                   href={heroSlides[currentSlide].primaryCta.link}
-                  className="inline-block bg-[#2a2a2a] text-white px-8 py-3.5 rounded-md hover:bg-[#3a3a3a] border border-white/10 transition-all duration-300 font-medium tracking-wide shadow-md hover:shadow-xl text-[15px] text-center"
+                  className="inline-block bg-[#2a2a2a] text-white px-5 py-2.5 sm:px-8 sm:py-3.5 rounded-md hover:bg-[#3a3a3a] border border-white/10 transition-all duration-300 font-medium tracking-wide shadow-md hover:shadow-xl text-sm sm:text-[15px] text-center"
                 >
                   {heroSlides[currentSlide].primaryCta.text}
                 </a>
               ) : (
                 <Link
                   href={heroSlides[currentSlide].primaryCta.link}
-                  className="inline-block bg-[#2a2a2a] text-white px-8 py-3.5 rounded-md hover:bg-[#3a3a3a] border border-white/10 transition-all duration-300 font-medium tracking-wide shadow-md hover:shadow-xl text-[15px] text-center"
+                  className="inline-block bg-[#2a2a2a] text-white px-5 py-2.5 sm:px-8 sm:py-3.5 rounded-md hover:bg-[#3a3a3a] border border-white/10 transition-all duration-300 font-medium tracking-wide shadow-md hover:shadow-xl text-sm sm:text-[15px] text-center"
                 >
                   {heroSlides[currentSlide].primaryCta.text}
                 </Link>
@@ -125,14 +155,14 @@ export default function Home() {
               {heroSlides[currentSlide].secondaryCta.isPhone ? (
                 <a
                   href={heroSlides[currentSlide].secondaryCta.link}
-                  className="inline-block bg-white text-[#1a1a1a] px-8 py-3.5 rounded-md hover:bg-white/90 transition-all duration-300 font-medium tracking-wide shadow-md hover:shadow-lg text-[15px] text-center"
+                  className="inline-block bg-white text-[#1a1a1a] px-5 py-2.5 sm:px-8 sm:py-3.5 rounded-md hover:bg-white/90 transition-all duration-300 font-medium tracking-wide shadow-md hover:shadow-lg text-sm sm:text-[15px] text-center"
                 >
                   {heroSlides[currentSlide].secondaryCta.text}
                 </a>
               ) : (
                 <Link
                   href={heroSlides[currentSlide].secondaryCta.link}
-                  className="inline-block bg-white text-[#1a1a1a] px-8 py-3.5 rounded-md hover:bg-white/90 transition-all duration-300 font-medium tracking-wide shadow-md hover:shadow-lg text-[15px] text-center"
+                  className="inline-block bg-white text-[#1a1a1a] px-5 py-2.5 sm:px-8 sm:py-3.5 rounded-md hover:bg-white/90 transition-all duration-300 font-medium tracking-wide shadow-md hover:shadow-lg text-sm sm:text-[15px] text-center"
                 >
                   {heroSlides[currentSlide].secondaryCta.text}
                 </Link>
@@ -141,17 +171,17 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Navigation Arrows */}
+        {/* Navigation Arrows - Hidden on mobile, visible on desktop */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
+          className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
+          className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
           aria-label="Next slide"
         >
           <ChevronRight className="w-6 h-6" />
@@ -163,9 +193,9 @@ export default function Home() {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide
-                  ? 'bg-white w-8'
+                  ? 'bg-white w-6 sm:w-8'
                   : 'bg-white/50 hover:bg-white/75'
               }`}
               aria-label={`Go to slide ${index + 1}`}

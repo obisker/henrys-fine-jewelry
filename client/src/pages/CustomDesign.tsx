@@ -1,6 +1,7 @@
 import { Pencil, Gem, Hammer, Sparkles, CheckCircle, Phone } from 'lucide-react';
 
 export default function CustomDesign() {
+  const basePath = import.meta.env.BASE_URL;
   const designProcess = [
     { step: 1, icon: Pencil, title: 'Consultation', description: 'Share your vision, inspiration, and budget with our expert designers' },
     { step: 2, icon: Gem, title: 'Design & Selection', description: 'Review hand-drawn sketches and select your perfect stones' },
@@ -20,7 +21,7 @@ export default function CustomDesign() {
   return (
     <div>
       <section className="relative h-[60vh] min-h-[400px] flex items-center">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/images/custom-design-process.jpg)' }}>
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${basePath}images/custom-design-process.jpg)` }}>
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 to-black/45" />
         </div>
         <div className="container relative z-10 text-white">
