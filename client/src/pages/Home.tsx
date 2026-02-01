@@ -232,7 +232,7 @@ export default function Home() {
             <Link href="/engagement-rings" className="group block">
               <div className="relative overflow-hidden rounded-xl aspect-[4/5] mb-4">
                 <img
-                  src="/images/hero-hands-rings.jpg"
+                  src={`${basePath}images/hero-hands-rings.jpg`}
                   alt="Engagement Rings"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -250,7 +250,7 @@ export default function Home() {
             <Link href="/custom-design" className="group block">
               <div className="relative overflow-hidden rounded-xl aspect-[4/5] mb-4">
                 <img
-                  src="/images/custom-design-process.jpg"
+                  src={`${basePath}images/custom-design-process.jpg`}
                   alt="Custom Design"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -268,7 +268,7 @@ export default function Home() {
             <a href="#" className="group block">
               <div className="relative overflow-hidden rounded-xl aspect-[4/5] mb-4 bg-[#1a1a1a]">
                 <img
-                  src="/images/fine-jewelry-collection.jpg"
+                  src={`${basePath}images/fine-jewelry-collection.jpg`}
                   alt="Fine Jewelry"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -423,7 +423,7 @@ export default function Home() {
             </div>
             <div>
               <img
-                src="/images/store-interior-welcoming.jpg"
+                src={`${basePath}images/store-interior-welcoming.jpg`}
                 alt="Henry's Fine Jewelry Store Interior"
                 className="rounded-xl shadow-2xl"
               />
