@@ -2,6 +2,8 @@ import { Sparkles } from 'lucide-react';
 import CategoryTemplate from './CategoryTemplate';
 
 export default function Earrings() {
+  const basePath = import.meta.env.BASE_URL;
+
   const subcategories = [
     { title: 'Diamond Studs', description: 'Classic and timeless diamond stud earrings' },
     { title: 'Hoops', description: 'From delicate to statement-making hoop earrings' },

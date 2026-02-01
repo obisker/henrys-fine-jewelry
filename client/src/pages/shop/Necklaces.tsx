@@ -2,6 +2,8 @@ import { Heart } from 'lucide-react';
 import CategoryTemplate from './CategoryTemplate';
 
 export default function Necklaces() {
+  const basePath = import.meta.env.BASE_URL;
+
   const subcategories = [
     { title: 'Diamond Pendants', description: 'Solitaire and multi-stone diamond pendants' },
     { title: 'Gemstone Necklaces', description: 'Colored gemstone pendants and necklaces' },

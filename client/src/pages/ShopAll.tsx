@@ -17,6 +17,12 @@ export default function ShopAll() {
   return (
     <div>
       <section className="relative h-[50vh] min-h-[350px] flex items-center bg-[#1a1a1a]">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${basePath}images/shop-all-hero.jpg)` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
+        </div>
         <div className="container relative z-10 text-white">
           <div className="max-w-3xl">
             <ShoppingBag className="w-16 h-16 text-[#d4af37] mb-6" />

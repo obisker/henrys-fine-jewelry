@@ -121,7 +121,7 @@ export default function Home() {
               className="absolute inset-0 bg-cover"
               style={{
                 backgroundImage: `url(${slide.image})`,
-                backgroundPosition: index === 3 ? 'center 60%' : 'center center',
+                backgroundPosition: index === 3 ? 'center 80%' : 'center center',
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />

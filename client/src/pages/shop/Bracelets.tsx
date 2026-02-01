@@ -2,6 +2,8 @@ import { Gem } from 'lucide-react';
 import CategoryTemplate from './CategoryTemplate';
 
 export default function Bracelets() {
+  const basePath = import.meta.env.BASE_URL;
+
   const subcategories = [
     { title: 'Tennis Bracelets', description: 'Classic diamond and gemstone tennis bracelets' },
     { title: 'Bangles', description: 'Solid and hinged bangle bracelets' },

@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [shopDropdownOpen, setShopDropdownOpen] = useState(false);
+
 
   return (
     <>
@@ -52,41 +52,9 @@ export default function Header() {
         {/* Navigation Tier - Desktop */}
         <div className="py-4">
           <nav className="container hidden lg:flex items-center justify-center gap-10">
-            {/* Shop Online Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setShopDropdownOpen(true)}
-              onMouseLeave={() => setShopDropdownOpen(false)}
-            >
-              <Link href="/shop" className="text-white hover:text-[#d4af37] transition-colors text-xs tracking-[0.2em] uppercase font-medium">
-                Shop Online
-              </Link>
-              {shopDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-[#1a1a1a] border border-white/10 shadow-xl rounded-md overflow-hidden z-50">
-                  <Link href="/shop" className="block px-6 py-3 text-white hover:bg-[#2a2a2a] hover:text-[#d4af37] transition-colors text-xs tracking-[0.15em] uppercase border-b border-white/10">
-                    Shop All Items
-                  </Link>
-                  <Link href="/shop/rings" className="block px-6 py-3 text-white hover:bg-[#2a2a2a] hover:text-[#d4af37] transition-colors text-xs tracking-[0.15em] uppercase border-b border-white/10">
-                    Rings
-                  </Link>
-                  <Link href="/shop/earrings" className="block px-6 py-3 text-white hover:bg-[#2a2a2a] hover:text-[#d4af37] transition-colors text-xs tracking-[0.15em] uppercase border-b border-white/10">
-                    Earrings
-                  </Link>
-                  <Link href="/shop/necklaces" className="block px-6 py-3 text-white hover:bg-[#2a2a2a] hover:text-[#d4af37] transition-colors text-xs tracking-[0.15em] uppercase border-b border-white/10">
-                    Necklaces
-                  </Link>
-                  <Link href="/shop/bracelets" className="block px-6 py-3 text-white hover:bg-[#2a2a2a] hover:text-[#d4af37] transition-colors text-xs tracking-[0.15em] uppercase border-b border-white/10">
-                    Bracelets
-                  </Link>
-                  <Link href="/shop/estate" className="block px-6 py-3 text-white hover:bg-[#2a2a2a] hover:text-[#d4af37] transition-colors text-xs tracking-[0.15em] uppercase border-b border-white/10">
-                    Estate Jewelry
-                  </Link>
-                  <Link href="/shop/sterling" className="block px-6 py-3 text-white hover:bg-[#2a2a2a] hover:text-[#d4af37] transition-colors text-xs tracking-[0.15em] uppercase">
-                    Artisan Sterling Silver
-                  </Link>
-                </div>
-              )}
-            </div>
+            <Link href="/shop" className="text-white hover:text-[#d4af37] transition-colors text-xs tracking-[0.2em] uppercase font-medium">
+              Shop Online
+            </Link>
             <Link href="/engagement-rings" className="text-white hover:text-[#d4af37] transition-colors text-xs tracking-[0.2em] uppercase font-medium">
               Engagement Rings
             </Link>

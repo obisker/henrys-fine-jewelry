@@ -2,9 +2,17 @@ import { Link } from 'wouter';
 import { Phone, Heart } from 'lucide-react';
 
 export default function Rings() {
+  const basePath = import.meta.env.BASE_URL;
+
   return (
     <div>
-      <section className="relative h-[50vh] min-h-[350px] flex items-center bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a]">
+      <section className="relative h-[50vh] min-h-[350px] flex items-center bg-[#1a1a1a]">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${basePath}images/rings-hero.jpg)` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
+        </div>
         <div className="container relative z-10 text-white">
           <div className="max-w-3xl">
             <Heart className="w-16 h-16 text-[#d4af37] mb-6" />
