@@ -1,5 +1,5 @@
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Router, Switch } from "wouter";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -9,7 +9,10 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import Locations from "./pages/Locations";
 
-function Router() {
+// GitHub Pages base path configuration
+const base = import.meta.env.BASE_URL;
+
+function AppRouter() {
   return (
     <>
       <Header />
@@ -29,7 +32,11 @@ function Router() {
 }
 
 function App() {
-  return <Router />;
+  return (
+    <Router base={base}>
+      <AppRouter />
+    </Router>
+  );
 }
 
 export default App;
