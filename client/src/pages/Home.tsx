@@ -4,31 +4,32 @@ import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const basePath = import.meta.env.BASE_URL;
 
   const heroSlides = [
     {
-      image: '/images/hero-couple-proposal.jpg',
+      image: `${basePath}images/hero-couple-proposal.jpg`,
       title: 'Where Love Stories Begin',
       subtitle: 'Celebrating life\'s most precious moments with exquisite jewelry since 1989',
       primaryCta: { text: 'Explore Engagement Rings', link: '/engagement-rings' },
       secondaryCta: { text: 'Book Consultation', link: 'tel:9082733777', isPhone: true },
     },
     {
-      image: '/images/custom-design-process.jpg',
+      image: `${basePath}images/custom-design-process.jpg`,
       title: 'Custom Design Excellence',
       subtitle: 'Bring your vision to life with our expert craftsmen and designers',
       primaryCta: { text: 'Start Custom Design', link: '/custom-design' },
       secondaryCta: { text: 'View Our Process', link: '/custom-design' },
     },
     {
-      image: '/images/hero-hands-rings.jpg',
+      image: `${basePath}images/hero-hands-rings.jpg`,
       title: 'Timeless Engagement Rings',
       subtitle: 'Discover the perfect symbol of your love from our curated collection',
       primaryCta: { text: 'Browse Engagement Rings', link: '/engagement-rings' },
       secondaryCta: { text: 'Book Consultation', link: 'tel:9082733777', isPhone: true },
     },
     {
-      image: '/images/store-interior-welcoming.jpg',
+      image: `${basePath}images/store-interior-welcoming.jpg`,
       title: 'Family-Owned Since 1989',
       subtitle: 'Experience personalized service at our Summit and Basking Ridge locations',
       primaryCta: { text: 'Visit Our Showrooms', link: '/locations' },
